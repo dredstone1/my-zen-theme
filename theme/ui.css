@@ -1,0 +1,55 @@
+:root {
+    --zen-webview-border-radius: 0px !important;
+}
+
+/* remove the back and forward buttons */
+#back-button,
+#forward-button {
+    display: none !important;
+}
+
+/* no window controls(exit,minimize,maximize) */
+#zen-sidebar-top-buttons {
+    .titlebar-buttonbox-container {
+        display: none !important;
+    }
+}
+
+/* remove the scrollbar from the sidebar */
+#zen-browser-tabs-wrapper {
+    scrollbar-width: none !important;
+}
+
+/* fix bleeding corners */
+.browserContainer {
+    clip-path: inset(0 round var(--zen-native-inner-radius)) !important;
+}
+
+/* fix the sidebar splitter */
+#zen-sidebar-splitter {
+    z-index: 3 !important;
+}
+
+/* no gap */
+#zen-sidebar-top-buttons {
+    margin: 0px !important;
+}
+
+#navigator-toolbox[zen-sidebar-expanded="true"] {
+    --zen-toolbox-min-width: fit-content !important;
+    --tab-icon-end-margin: 8.5px !important;
+    padding: 0px !important;
+}
+
+#zen-tabbox-wrapper {
+    --zen-element-separation: 0px !important;
+}
+
+.zen-split-view-splitter {
+    width: 5px !important;
+}
+
+#tabbrowser-tabpanels:not([zen-split-view="true"]) {
+    padding-left: 0px !important;
+    padding-right: 0px !important;
+}

@@ -1,0 +1,20 @@
+:root {
+    --zen-main-browser-background: transparent !important;
+}
+
+/* hide shadows */
+hbox.browserSidebarContainer,
+#zen-tabbox-wrapper {
+    box-shadow: none !important;
+}
+
+/* transparent essential tabs */
+.tabbrowser-tab[zen-essential="true"]:not(:hover):not([selected="true"]) .tab-stack .tab-background {
+    background-color: transparent !important;
+}
+
+.browserStack {
+    browser {
+        background-color: transparent !important;
+    }
+}

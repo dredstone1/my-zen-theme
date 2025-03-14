@@ -1,0 +1,45 @@
+/* add "open in new tab" text, when opening a new tab */
+#urlbar[zen-newtab="true"] {
+    #identity-icon {
+        list-style-image: url("chrome://browser/skin/zen-icons/new-tab-image.svg") !important;
+        filter: opacity(0.5) !important;
+    }
+
+    &[open] #identity-icon-box::after {
+        content: "open in new tab" !important;
+        filter: opacity(0.5) !important;
+        padding-left: 6px !important;
+    }
+}
+
+/*  transparent url bar  */
+#urlbar[open][zen-floating-urlbar="true"] {
+    #urlbar-background {
+        background-color: light-dark(color-mix(in srgb, #fdfdfd 75%, transparent), color-mix(in srgb, #0e0e0e 75%, transparent)) !important;
+    }
+}
+
+/* clean up the url bar */
+#zen-appcontent-navbar-container,
+#page-action-buttons,
+#identity-permission-box {
+    display: none !important;
+}
+
+/* URL bar page animation */
+#browser:has(#urlbar[open][zen-floating-urlbar="true"]) #tabbrowser-tabpanels {
+    pointer-events: none;
+    scale: 1.1 !important;
+    filter: blur(10px) brightness(70%) !important;
+}
+
+#urlbar[open][zen-floating-urlbar="true"] #urlbar-background {
+    border-radius: 1em !important;
+}
+
+/* url bar cleanup */
+#zen-appcontent-navbar-container,
+#page-action-buttons,
+#identity-permission-box {
+    display: none !important;
+}

@@ -1,0 +1,73 @@
+/* improved ctrl-tab appearance */
+.ctrlTab-preview-inner {
+    margin: 0 !important;
+    transition: all 0.2s ease-in-out !important;
+
+    .ctrlTab-canvas {
+        border-radius: 1em !important;
+        overflow: hidden !important;
+
+        img {
+            background-color: #000000 !important;
+        }
+    }
+
+    .ctrlTab-favicon-container {
+        justify-content: center !important;
+        transition: all 0.5s ease-in-out !important;
+
+        image {
+            border-radius: 50% !important;
+            transition: all 0.5s ease-in-out !important;
+            scale: 1.25 !important;
+        }
+    }
+
+    .ctrlTab-label {
+        margin-top: 1.5em !important;
+    }
+}
+
+.ctrlTab-preview:focus>.ctrlTab-preview-inner {
+    outline: none !important;
+    background-color: var(--sidebar-background-color) !important;
+    border-radius: 1.5em !important;
+    scale: 1.03 !important;
+
+    .ctrlTab-favicon-container {
+        image {
+            padding: 2px !important;
+        }
+    }
+}
+
+/* ctrl tab visuals and animations */
+#ctrlTab-panel {
+    --panel-background: var(--lwt-accent-color) !important;
+    transition: all 0.1s cubic-bezier(0.175, 0.885, 0.32, 1.1) 0.2s !important;
+    scale: 0.7;
+}
+
+#ctrlTab-panel:has(.ctrlTab-preview:not([hidden="true"])) {
+    scale: 1 !important;
+}
+
+slot:nth-child(1) {
+    border-radius: 1em !important;
+    padding: 0 !important;
+}
+
+/* Remove new tab background color  */
+.browserStack {
+    browser {
+        background-color: transparent !important;
+    }
+}
+
+/* reduce the separaters width */
+#vertical-pinned-tabs-container-separator,
+#tabbrowser-arrowscrollbox-periphery:before,
+#TabsToolbar-customization-target:after,
+.vertical-pinned-tabs-container-separator {
+    width: 30% !important;
+}
