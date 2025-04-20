@@ -1,42 +1,88 @@
-#zen-workspaces-button {
-    border-radius: 8px !important;
-    background-color: rgba(255, 255, 255, 0.1) !important;
-    box-shadow: 0 0 12px rgba(0, 0, 0, 0.2) !important;
-    padding: 3px !important;
+@-moz-document url-prefix("chrome:") {
+    :root {
+        --psu-better_ws_buttons-button_font_size: 16px;
+        --psu-better_ws_buttons-button_opacity: 0.7;
+        --psu-better_ws_buttons-button_magnification: 1.1;
+        --psu-better_ws_buttons-button_active_size: calc(var(--psu-better_ws_buttons-button_font_size) * var(--psu-better_ws_buttons-button_magnification));
+        --psu-better_ws_buttons-button_marker_size: calc(var(--psu-better_ws_buttons-button_active_size) * 0.225);
+        --psu-better_ws_buttons-button_size: calc(var(--psu-better_ws_buttons-button_active_size) * 1.5 + var(--psu-better_ws_buttons-button_marker_size));
+        --psu-better_ws_buttons-button_outline_color: light-dark(rgba(1, 1, 1, calc(var(--psu-better_ws_buttons-button_opacity) * 0.35)),
+                rgba(255, 255, 255, calc(var(--psu-better_ws_buttons-button_opacity) * 0.35)));
+        --psu-better_ws_buttons-button_hover_background: light-dark(rgba(1, 1, 1, calc(var(--psu-better_ws_buttons-button_opacity) * 0.15)),
+                rgba(255, 255, 255, calc(var(--psu-better_ws_buttons-button_opacity) * 0.25)));
+        --psu-better_ws_buttons-toolbar_padding: calc(2 * var(--toolbarbutton-inner-padding) + 16px + var(--zen-element-separation));
+    }
 
-    .subviewbutton {
-        border-radius: 6px !important;
-        transition: background-color 0.2s ease !important;
-        font-size: 16px !important;
-        filter: grayscale(0%) !important;
-        --toolbarbutton-hover-background: color-mix(in srgb, var(--zen-branding-bg-reverse) 10%, transparent 90%) !important;
+    #zen-sidebar-bottom-buttons {
+        border-top: 1px solid light-dark(rgba(1, 1, 1, 0.075), rgba(255, 255, 255, 0.1)) !important;
 
-        &:hover {
-            background-color: var(--toolbarbutton-hover-background) !important;
-        }
+        #zen-workspaces-button {
+            position: absolute !important;
+            font-size: var(--psu-better_ws_buttons-button_font_size) !important;
+            bottom: calc(var(--zen-toolbox-padding) * -0.7);
+            margin: 0 var(--psu-better_ws_buttons-toolbar_padding) !important;
+            width: calc(100% - var(--psu-better_ws_buttons-toolbar_padding) * 2) !important;
 
-        &:active {
-            background-color: var(--toolbarbutton-active-background) !important;
-        }
+            toolbarbutton {
+                filter: grayscale(0) !important;
+                opacity: var(--psu-better_ws_buttons-button_opacity) !important;
+                filter: saturate(calc(var(--psu-better_ws_buttons-button_opacity) * 0.5)) !important;
+                transition-duration: 0.05s, 0.05s, 0.05s !important;
+                height: var(--psu-better_ws_buttons-button_size) !important;
+                width: var(--psu-better_ws_buttons-button_size) !important;
+                border-radius: calc(var(--psu-better_ws_buttons-button_active_size) * 0.4) !important;
 
-        &[active] {
-            background-color: light-dark(rgba(255, 255, 255, 1), rgba(255, 255, 255, 0.2)) !important;
-            box-shadow: 0 0 4px rgba(0, 0, 0, 0.2) !important;
-            overflow: hidden !important;
+                &:hover {
+                    opacity: 1 !important;
+                    filter: saturate(1) !important;
+                    font-size: var(--psu-better_ws_buttons-button_active_size) !important;
+                    background: var(--psu-better_ws_buttons-button_hover_background) !important;
+                }
 
-            &::before {
-                content: "" !important;
-                position: absolute !important;
-                width: 100% !important;
-                height: 100% !important;
-                margin-top: 50% !important;
-                background: linear-gradient(0, rgba(0, 0, 0, 0.2), transparent) !important;
+                &[active='true'] {
+                    font-size: var(--psu-better_ws_buttons-button_active_size) !important;
+                    opacity: 1 !important;
+                    filter: saturate(1) !important;
+
+                    &:hover {
+                        background: var(--psu-better_ws_buttons-button_hover_background) !important;
+                    }
+                }
+
+                .zen-workspace-icon {
+                    text-shadow: 0px 0px 1px var(--psu-better_ws_buttons-button_outline_color);
+                }
+            }
+
+            &:not([overflow]) toolbarbutton[active='true']::before {
+                content: '';
+                position: absolute;
+                margin: 0 auto;
+                bottom: 0;
+                font-size: var(--psu-better_ws_buttons-button_active_size);
+                width: var(--psu-better_ws_buttons-button_marker_size);
+                height: var(--psu-better_ws_buttons-button_marker_size);
+                background: light-dark(rgba(1, 1, 1, calc(var(--psu-better_ws_buttons-button_opacity) * 0.75)), rgba(255, 255, 255, calc(var(--psu-better_ws_buttons-button_opacity) * 0.75)));
+                border-radius: 100%;
             }
         }
     }
-}
 
-/* remove the padding from the workspace */
-toolbarbutton {
-    padding: 0em !important;
+    #zen-current-workspace-indicator-container {
+        .zen-current-workspace-indicator {
+            .zen-current-workspace-indicator-icon {
+                text-shadow: 0px 0px 1px var(--psu-better_ws_buttons-button_outline_color);
+                font-size: calc(var(--psu-better_ws_buttons-button_font_size) + 3px) !important;
+            }
+        }
+    }
+
+    #PanelUI-zen-workspaces {
+        toolbarbutton {
+            .zen-workspace-icon {
+                font-size: var(--psu-better_ws_buttons-button_font_size) !important;
+                text-shadow: 0px 0px 1px var(--psu-better_ws_buttons-button_outline_color);
+            }
+        }
+    }
 }

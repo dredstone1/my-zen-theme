@@ -3,11 +3,9 @@
 /* include custom css files */
 @import "theme/transparent.css";
 @import "theme/tabs.css";
-@import "theme/ui.css";
 @import "theme/url-bar.css";
 @import "theme/ctrl-tab.css";
-@import "theme/extension-view.css";
-@import "theme/animations.css";
 @import "theme/workspace.css";
 @import "theme/findbar.css";
+@import "theme/progress-bar.css";
 

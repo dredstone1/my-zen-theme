@@ -1,49 +1,35 @@
-/* tab text size */
-.tab-text.tab-label {
-    font-size: 10px !important;
+:root {
+    --psu-tab_title_fixes-font_size: 13px;
+    --psu-tab_title_fixes-pending_opacity: 0.55;
 }
 
-/* gray unload tabs */
-.tabbrowser-tab[pending="true"] {
-    filter: grayscale(1) !important;
-}
+#tabbrowser-tabs {
+    .tabbrowser-tab {
 
-/* move the essential tabs to the bottom */
-#zen-essentials-container {
-    /* margin-top: auto; */
-    order: 999 !important;
-}
+        #tab-label-input,
+        .tab-label {
+            font-size: var(--psu-tab_title_fixes-font_size) !important;
+        }
 
-/* vertical tab groups for split view */
-tab-group[split-view-group] {
-    flex-direction: column !important;
-    padding: 2px 2px !important;
-    position: relative !important;
+        .tab-icon-image,
+        .tab-label-container {
+            &:not([selected], [multiselected]) {
+                opacity: calc(var(--psu-tab_title_fixes-pending_opacity) + 0.3) !important;
+            }
+        }
 
-    &::after {
-        content: '' !important;
-        width: 1px !important;
-        height: calc(100% - 8px) !important;
-        background-color: light-dark(rgba(0, 0, 0, 0.1), rgba(255, 255, 255, 0.2)) !important;
-        position: absolute !important;
-        right: 0 !important;
-        top: 50% !important;
-        transform: translateY(-50%) !important;
-    }
+        &[pending='true'] {
 
-    &:hover,
-    &:has(> tab:is([visuallyselected], [multiselected])) {
-        &::after {
-            width: 0 !important;
+            .tab-icon-image,
+            .tab-label-container:not([selected], [multiselected]) {
+                opacity: var(--psu-tab_title_fixes-pending_opacity) !important;
+            }
         }
     }
 }
 
-tab-group[split-view-group] {
-    &>.tabbrowser-tab {
-        &:not(:last-child)::after {
-            width: 0 !important;
-            height: 0 !important;
-        }
-    }
+
+#tab-label-input::selection {
+    background: var(--input-color) !important;
+    color: var(--input-bgcolor) !important;
 }
