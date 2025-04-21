@@ -1,6 +1,6 @@
 /* transparency */
 :root {
-    --zen-main-browser-background: #00000000  !important;
+    --zen-main-browser-background: transparent !important;
 }
 
 /* Remove new tab background color added in 1.8b */
