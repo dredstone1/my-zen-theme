@@ -75,14 +75,6 @@ root {
     text-align: center !important;
 }
 
-/* Apply colorful border when enabled */
-#urlbar-background {
-    background-origin: border-box !important;
-    background-clip: padding-box, border-box !important;
-    background-image: linear-gradient(rgba(59, 59, 61, 0.8), rgba(59, 59, 61, 0.8)),
-        linear-gradient(90deg, #ff7e5f, #feb47b, #7bc6cc, #8583ed) !important;
-}
-
 /* Apply glow effect on focus when enabled */
 #urlbar-background {
     box-shadow: 0 0 8px rgba(137, 137, 186, 0.3) !important;
