@@ -1,75 +1,84 @@
 /* transparency */
 :root {
-    --zen-main-browser-background: transparent !important;
+  --zen-main-browser-background: transparent !important;
 }
 
 /* Remove new tab background color added in 1.8b */
 .browserStack {
-    browser {
-        background-color: transparent !important;
-    }
+  browser {
+    background-color: transparent !important;
+  }
 }
 
 /* hide shadow */
 hbox.browserSidebarContainer,
 #zen-tabbox-wrapper {
-    box-shadow: none !important;
+  box-shadow: none !important;
 }
 
 /* removed tab bg added in 1.9b */
 #browser:has([zen-empty-tab="true"][selected="true"]) .browserStack {
-    browser {
-        background-color: transparent !important;
-        opacity: 0 !important;
-    }
+  browser {
+    background-color: transparent !important;
+    opacity: 0 !important;
+  }
 }
 
 /* Animations */
 /* Tab switch animation */
-#tabbrowser-tabpanels>hbox:not([zen-split="true"]):not(:has(.zen-glance-background)) {
-    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.35),
-        filter 0.45s ease-in-out, opacity 0.35s ease-in-out !important;
-    scale: 0.9 !important;
-    opacity: 0;
+#tabbrowser-tabpanels
+  > hbox:not([zen-split="true"]):not(:has(.zen-glance-background)) {
+  transition:
+    all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.35),
+    filter 0.45s ease-in-out,
+    opacity 0.35s ease-in-out !important;
+  scale: 0.9 !important;
+  opacity: 0;
 }
 
-#tabbrowser-tabpanels>hbox.deck-selected:not([zen-split="true"]) {
-    scale: 1 !important;
-    opacity: 1 !important;
+#tabbrowser-tabpanels > hbox.deck-selected:not([zen-split="true"]) {
+  scale: 1 !important;
+  opacity: 1 !important;
 }
 
 /* website view animations */
 #browser:not(:has(.zen-glance-background)) #tabbrowser-tabpanels {
-    transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.35) !important;
+  transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.35) !important;
 }
 
 /* URL bar page animation */
 #browser:has(#urlbar[open][zen-floating-urlbar="true"]) #tabbrowser-tabpanels {
-    pointer-events: none;
-    scale: 1.1 !important;
-    filter: blur(10px) brightness(70%) !important;
+  pointer-events: none;
+  scale: 1.1 !important;
+  filter: blur(10px) brightness(70%) !important;
 }
 
 #urlbar[open][zen-floating-urlbar="true"] #urlbar-background {
-    border-radius: 1em !important;
+  border-radius: 1em !important;
 }
 
 /* trackpad gestures*/
 tabpanels .browserStack browser {
-    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.1) 0.1s !important;
-    border-radius: 0.75em !important;
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.1) 0.1s !important;
+  border-radius: 0.75em !important;
 }
 
 /* Previous animation*/
-.browserStack:has(#historySwipeAnimationPreviousArrow:not([style="translate: none;"])) browser {
-    scale: 0.95 !important;
-    transform: translateX(3%) !important;
-    border-radius: 2em !important;
+.browserStack:has(
+    #historySwipeAnimationPreviousArrow:not([style="translate: none;"])
+  )
+  browser {
+  scale: 0.95 !important;
+  transform: translateX(3%) !important;
+  border-radius: 2em !important;
 }
 
 /* Next animation*/
-.browserStack:has(#historySwipeAnimationNextArrow:not([style="translate: none;"])) browser {
-    scale: 0.95 !important;
-    transform: translateX(-3%) !important;
-    border-radius: 2em !important;
+.browserStack:has(
+    #historySwipeAnimationNextArrow:not([style="translate: none;"])
+  )
+  browser {
+  scale: 0.95 !important;
+  transform: translateX(-3%) !important;
+  border-radius: 2em !important;
 }

@@ -1,6 +1,5 @@
 /* init theme */
 
-/* include custom css files */
 @import "theme/transparent.css";
 @import "theme/tabs.css";
 @import "theme/url-bar.css";
@@ -9,4 +8,4 @@
 @import "theme/findbar.css";
 @import "theme/progress-bar.css";
 @import "theme/ui-tweaks.css";
-
+@import "theme/media.css";

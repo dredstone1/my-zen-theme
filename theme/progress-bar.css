@@ -1,61 +1,63 @@
 /* add a progress bar to the active tab */
 #zen-appcontent-wrapper {
-    position: relative !important;
-    background-color: transparent !important;
+  position: relative !important;
+  background-color: transparent !important;
 }
 
 #zen-appcontent-wrapper::before {
-    content: "" !important;
-    position: absolute !important;
-    top: 2px !important;
-    left: 6px !important;
-    height: 4px !important;
-    max-width: calc(100% - 16px) !important;
-    width: var(--bar-pcent) !important;
-    background-color: var(--bar-colour) !important;
-    border-radius: 4px !important;
-    pointer-events: none !important;
-    transition: background-color 0.2s ease-in-out, width 0.5s ease-in-out !important;
+  content: "" !important;
+  position: absolute !important;
+  top: 2px !important;
+  left: 6px !important;
+  height: 4px !important;
+  max-width: calc(100% - 16px) !important;
+  width: var(--bar-pcent) !important;
+  background-color: var(--bar-colour) !important;
+  border-radius: 4px !important;
+  pointer-events: none !important;
+  transition:
+    background-color 0.2s ease-in-out,
+    width 0.5s ease-in-out !important;
 }
 
 #main-window {
-    &:has(.tabbrowser-tab[selected][busy]) {
-        --bar-colour: white !important;
-        --bar-pcent: 10% !important;
-    }
+  &:has(.tabbrowser-tab[selected][busy]) {
+    --bar-colour: white !important;
+    --bar-pcent: 10% !important;
+  }
 
-    &:has(.tabbrowser-tab[selected][busy][pendingicon]) {
-        --bar-colour: white !important;
-        --bar-pcent: 50% !important;
-    }
+  &:has(.tabbrowser-tab[selected][busy][pendingicon]) {
+    --bar-colour: white !important;
+    --bar-pcent: 50% !important;
+  }
 
-    &:has(.tabbrowser-tab[selected][busy][pendingicon][progress]) {
-        --bar-colour: white !important;
-        --bar-pcent: 80% !important;
-    }
+  &:has(.tabbrowser-tab[selected][busy][pendingicon][progress]) {
+    --bar-colour: white !important;
+    --bar-pcent: 80% !important;
+  }
 
-    &:has(.tabbrowser-tab[selected][busy][progress]) {
-        --bar-colour: white !important;
-        --bar-pcent: 100% !important;
-    }
+  &:has(.tabbrowser-tab[selected][busy][progress]) {
+    --bar-colour: white !important;
+    --bar-pcent: 100% !important;
+  }
 
-    &:has(.tabbrowser-tab[selected][muted]:not([busy])) {
-        --bar-colour: orangered !important;
-        --bar-pcent: 100% !important;
-    }
+  &:has(.tabbrowser-tab[selected][muted]:not([busy])) {
+    --bar-colour: orangered !important;
+    --bar-pcent: 100% !important;
+  }
 
-    &:has(.tabbrowser-tab[selected]:not([muted]):not([busy])) {
-        --bar-colour: transparent !important;
-        --bar-pcent: 0% !important;
-    }
+  &:has(.tabbrowser-tab[selected]:not([muted]):not([busy])) {
+    --bar-colour: transparent !important;
+    --bar-pcent: 0% !important;
+  }
 }
 
 #zen-appcontent-wrapper {
-    left: 0 !important;
-    top: 0 !important;
-    max-width: 100% !important;
-    margin: 0 !important;
-    padding: 0 !important;
+  left: 0 !important;
+  top: 0 !important;
+  max-width: 100% !important;
+  margin: 0 !important;
+  padding: 0 !important;
 }
 
 sidebar mods #sidebar-box,
@@ -63,35 +65,34 @@ sidebar mods #sidebar-box,
 #sidebar-header,
 #history-panel,
 #header {
-    background-color: transparent !important;
-    border: none !important;
-    box-shadow: none !important;
-    width: 250px !important;
-
+  background-color: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  width: 250px !important;
 }
 
-body>browser:nth-child(2)[disableglobalhistory="true"],
+body > browser:nth-child(2)[disableglobalhistory="true"],
 #sidebar {
-    border-radius: 0em !important;
-    overflow: hidden !important;
-    margin: 0 14px 14px 0 !important;
+  border-radius: 0em !important;
+  overflow: hidden !important;
+  margin: 0 14px 14px 0 !important;
 }
 
 #header:has(select[data-l10n-id="genai-header-provider-menu"]) {
-    display: none !important;
+  display: none !important;
 }
 
 #sidebar-header {
-    display: none !important;
-    transition: all 0.3s ease-in-out !important;
-    top: 0px !important;
-    position: relative !important;
-    height: 0 !important;
-    opacity: 0.01 !important;
+  display: none !important;
+  transition: all 0.3s ease-in-out !important;
+  top: 0px !important;
+  position: relative !important;
+  height: 0 !important;
+  opacity: 0.01 !important;
 
-    &:hover {
-        top: 0px !important;
-        height: 40px !important;
-        opacity: 1 !important;
-    }
+  &:hover {
+    top: 0px !important;
+    height: 40px !important;
+    opacity: 1 !important;
+  }
 }

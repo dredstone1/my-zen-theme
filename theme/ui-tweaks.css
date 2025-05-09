@@ -1,7 +1,18 @@
 #back-button {
-    display: none !important;
+  display: none !important;
 }
 
 #forward-button {
-    display: none !important;
+  display: none !important;
+}
+
+/* no split borders */
+hbox[zen-split="true"].deck-selected {
+  border: none !important;
+  outline: none !important;
+}
+
+/* Removes the bottom-left statusbar when hovering over a URL */
+#statuspanel {
+  display: none !important;
 }
